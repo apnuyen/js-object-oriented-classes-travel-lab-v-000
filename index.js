@@ -14,7 +14,7 @@ let eastWest = ['1st Avenue', '2nd Avenue', '3rd Avenue', 'Lexington Avenue', 'P
 class Route {
   constructor(beginningLocation, endingLocation) {
     this.beginningLocation = beginningLocation;
-    this.endingLocation = endingLocation; 
+    this.endingLocation = endingLocation;
   }
 
   blocksTravelled() {
@@ -22,6 +22,11 @@ class Route {
     let endPoint = eastWest.indexOf(this.endingLocation['horizontaol'])
     let vertical = Math.abs(this.endingLocation['vertical'] - this.beginningLocation['vertical'])
     return Math.abs(endPoint - startPoint) + vertical
+  }
+
+  estimatedTime (peakHours) {
+    return peakHours ? this.blocksTravelled() / 2 : this.blocksTravelled() / 3
+    
   }
 
 }
